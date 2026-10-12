@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button, buttonVariants } from './components/ui/button'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -21,13 +22,13 @@ function App() {
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
+        <Button
           type="button"
-          className="counter"
+          className="mb-6"
           onClick={() => setCount((count) => count + 1)}
         >
           Count is {count}
-        </button>
+        </Button>
       </section>
 
       <div className="ticks"></div>
@@ -41,13 +42,21 @@ function App() {
           <p>Your questions, answered</p>
           <ul>
             <li>
-              <a href="https://vite.dev/" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://vite.dev/"
+                target="_blank"
+              >
                 <img className="logo" src={viteLogo} alt="" />
                 Explore Vite
               </a>
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://react.dev/"
+                target="_blank"
+              >
                 <img className="button-icon" src={reactLogo} alt="" />
                 Learn more
               </a>
@@ -62,7 +71,11 @@ function App() {
           <p>Join the Vite community</p>
           <ul>
             <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://github.com/vitejs/vite"
+                target="_blank"
+              >
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -74,7 +87,11 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://chat.vite.dev/" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://chat.vite.dev/"
+                target="_blank"
+              >
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -86,7 +103,11 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://x.com/vite_js" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://x.com/vite_js"
+                target="_blank"
+              >
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -98,7 +119,11 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
+              <a
+                className={buttonVariants({ variant: 'secondary' })}
+                href="https://bsky.app/profile/vite.dev"
+                target="_blank"
+              >
                 <svg
                   className="button-icon"
                   role="presentation"
