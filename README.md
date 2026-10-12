@@ -48,7 +48,9 @@ curl --fail http://localhost:8080/up
 curl -o /dev/null -s -w '%{http_code}\n' http://localhost:8000/
 ```
 
-At http://localhost:8080, click the counter, then use Tab to focus it and Enter or Space to increment it. Keyboard focus should have a visible ring. Temporarily edit the heading in `frontend/src/App.tsx` and a style in `frontend/src/App.css`; both should update without manually reloading the page. Restore those edits afterward.
+The frontend copies the UI from the reference `sum` project: Home (`/`), About (`/about`), Changelog (`/changelog`), and Expedition (`/hike`), including its dialogs, transitions, maps, and responsive layouts. At http://localhost:8080, check desktop navigation and the mobile menu at 320px, refresh each route, and verify back/forward navigation. Choose “continue as guest” in the expedition onboarding dialog to try the local focus timer and tasks. Account sign-in, registration, and server profile/task saving need Laravel API endpoints that are not implemented here. Map tiles require external network access; the reference's trail fallback remains available when tiles cannot load.
+
+Run the frontend logic tests with `docker compose exec frontend npm test`. Changes in `frontend/src/pages/` and `frontend/src/index.css` hot reload through the development entry point. Unknown public paths return home; `/api` goes to Laravel and `/up` remains the health endpoint.
 
 ## Redis
 

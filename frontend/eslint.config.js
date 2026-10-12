@@ -28,4 +28,13 @@ export default defineConfig([
       ],
     },
   },
+  {
+    files: ['src/components/ui/badge.tsx'],
+    rules: {
+      'react-refresh/only-export-components': [
+        'error',
+        { allowExportNames: ['badgeVariants'] },
+      ],
+    },
+  },
 ])
