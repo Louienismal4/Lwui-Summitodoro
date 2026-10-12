@@ -48,7 +48,7 @@ curl --fail http://localhost:8080/up
 curl -o /dev/null -s -w '%{http_code}\n' http://localhost:8000/
 ```
 
-At http://localhost:8080, click the counter, then use Tab to focus it and Enter or Space to increment it. Keyboard focus should have a visible ring. Temporarily edit the heading in `frontend/src/App.tsx` and a style in `frontend/src/App.css`; both should update without manually reloading the page. Restore those edits afterward.
+At http://localhost:8080, check the Summitodoro logo, introduction, three planned-feature cards, and virtual-route disclaimer. Use Tab to focus the skip link and Home links; focus should be visible, and Enter should follow each link. Check the page at 320px and desktop widths, refresh a public URL such as `/unknown`, and confirm it shows the homepage while `/api` still returns Laravel's 404 and `/up` returns health status. Temporarily edit the heading in `frontend/src/App.tsx` and a style in `frontend/src/App.css`; both should update without manually reloading the page. Restore those edits afterward.
 
 ## Redis
 
