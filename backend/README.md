@@ -7,6 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Local development
+
+Use the canonical [Docker Compose workflow](../README.md#local-development) from the repository root for setup, dependency refresh, and checks. Laravel handles backend requests and `/up`; its direct root returns 404. React in `frontend/` owns all frontend assets.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
