@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+For local setup, dependency refresh, and checks, use the canonical [Docker Compose workflow](../README.md#local-development) from the repository root. This directory owns all frontend assets.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

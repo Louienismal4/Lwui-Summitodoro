@@ -4,6 +4,11 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    watch: {
+      usePolling: process.env.CHOKIDAR_USEPOLLING === 'true',
+    },
+  },
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] })
