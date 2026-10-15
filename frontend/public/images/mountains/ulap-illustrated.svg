@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 270" fill="none">
+  <!-- Concept artwork: replace with final Ulap trail illustration here. -->
+  <path fill="#e3e8d8" d="M0 0h320v270H0z"/>
+  <circle cx="67" cy="54" r="26" fill="#ecd394"/>
+  <path d="m0 145 46-48 41 23 60-52 35 20 46-43 52 62 40-17v180H0Z" fill="#b2c3af"/>
+  <path d="m0 179 51-50 37 11 49-39 74 48 60-61 49 32v150H0Z" fill="#86a38c"/>
+  <path d="M0 165c72 17 99-15 154-4s103 11 166-7v25c-63 16-99-1-158 2S43 191 0 182Z" fill="#eff0de" opacity=".8"/>
+  <path d="M0 223c71-57 116-23 154-58s89-61 166-25v130H0Z" fill="#75864e"/>
+  <path d="M103 201c40-12 63-53 110-61 27-5 49-9 76-7-59-22-91 1-130 26-21 14-29 29-56 42Z" fill="#c3bc78"/>
+  <path d="M172 270c-63-30-69-49-29-65s67-29 59-40c-5-6-17-6-20-9 41 4 36 20-3 42-59 33-12 48 29 72Z" fill="#ddc79b"/>
+  <g fill="#315b47">
+    <path d="M48 119 24 161h11l-20 34h22l-20 23h62l-19-23h18l-19-34h10Z"/>
+    <path d="M81 151 66 179h7l-14 26h13l-13 17h44l-13-17h13l-14-26h7Z"/>
+    <path d="M282 91 260 131h10l-20 35h18l-19 27h65l-20-27h17l-19-35h10Z"/>
+  </g>
+  <path d="M48 207v28m34-21v18m201-50v35" stroke="#315b47" stroke-width="5"/>
+  <path d="M0 251c38-17 67-18 117 19H0Zm238 19c34-20 59-22 82-15v15Z" fill="#46664a"/>
+  <path d="m232 230 3-15m-3 15 9-8m-9 8-5-8" stroke="#d1c98d" stroke-width="2" stroke-linecap="round"/>
+</svg>

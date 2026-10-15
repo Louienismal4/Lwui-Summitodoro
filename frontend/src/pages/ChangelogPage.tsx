@@ -1,5 +1,4 @@
 import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { RELEASES, type ReleaseCategory } from '@/data/changelog'
@@ -12,25 +11,22 @@ type Props = {
 
 const CATEGORY_CONFIG: Record<
   ReleaseCategory,
-  { label: string; badgeClass: string; categoryClass: string }
+  { label: string; badgeClass: string }
 > = {
   added: {
     label: 'Added',
     badgeClass:
-      'text-[11px] font-bold uppercase tracking-[0.12em] bg-[#e8f2e8] text-[var(--pine)] rounded px-2 py-0.5 border-0 inline-block mb-2',
-    categoryClass: 'release-category release-category-added',
+      'text-[11px] font-bold uppercase tracking-[0.12em] bg-[#e8f2e8] text-pine rounded px-2 py-0.5 border-0 inline-block mb-2',
   },
   changed: {
     label: 'Changed',
     badgeClass:
       'text-[11px] font-bold uppercase tracking-[0.12em] bg-[#e9f0f5] text-[#2b5c77] rounded px-2 py-0.5 border-0 inline-block mb-2',
-    categoryClass: 'release-category release-category-changed',
   },
   fixed: {
     label: 'Fixed',
     badgeClass:
-      'text-[11px] font-bold uppercase tracking-[0.12em] bg-[#fbe9e4] text-[var(--coral)] rounded px-2 py-0.5 border-0 inline-block mb-2',
-    categoryClass: 'release-category release-category-fixed',
+      'text-[11px] font-bold uppercase tracking-[0.12em] bg-[#fbe9e4] text-coral rounded px-2 py-0.5 border-0 inline-block mb-2',
   },
 }
 
@@ -42,7 +38,7 @@ export function ChangelogPage({
   onNavigateAbout,
 }: Props) {
   return (
-    <main className="info-page">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_88%_8%,rgba(158,180,154,0.34),transparent_28rem)] bg-cream px-4 sm:px-[clamp(16px,5vw,110px)] pt-6 pb-16 text-ink">
       <SiteHeader
         activeView="changelog"
         onNavigateHome={onNavigateHome}
@@ -51,31 +47,35 @@ export function ChangelogPage({
         onStartExpedition={onStartExpedition}
       />
 
-      <section className="info-hero compact">
+      <section className="max-w-[1080px] mx-auto mt-12 sm:mt-16 mb-8 sm:mb-11">
         <Badge
           variant="outline"
-          className="section-kicker border-transparent px-0 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[var(--coral)] bg-transparent hover:bg-transparent"
+          className="border-transparent px-0 text-[10px] font-extrabold uppercase tracking-[0.18em] text-coral bg-transparent hover:bg-transparent mb-3 block w-fit"
         >
           Product updates
         </Badge>
-        <h1>Changelog</h1>
-        <p>Follow the trail of improvements to Summitodoro.</p>
+        <h1 className="font-heading font-bold text-[clamp(36px,7.5vw,82px)] leading-[1.02] tracking-[-0.05em] text-ink-deep break-words m-0">
+          Changelog
+        </h1>
+        <p className="text-[#607066] max-w-[630px] mt-4 sm:mt-6 text-[clamp(15px,2.2vw,20px)] leading-[1.6]">
+          Follow the trail of improvements to Summitodoro.
+        </p>
       </section>
 
-      <section className="release-list" aria-label="Release history">
+      <section className="max-w-[1080px] mx-auto flex flex-col gap-4 sm:gap-5" aria-label="Release history">
         {RELEASES.map((release) => (
-          <Card
+          <div
             key={release.version}
-            className="release-entry border-[var(--line)] bg-[#fffdf7c7] shadow-xs"
+            className="border border-line bg-paper/80 rounded-xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-[150px_1fr] gap-3 sm:gap-8 shadow-xs"
           >
-            <div>
-              <span className="text-xs font-extrabold text-[var(--pine)] tracking-[0.09em] uppercase">
+            <div className="flex flex-col items-start gap-1.5">
+              <span className="text-xs font-extrabold text-pine tracking-[0.09em] uppercase">
                 {release.version}
               </span>
               <small className="text-xs text-[#7a877e]">{release.date}</small>
             </div>
             <div>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[var(--ink-deep)] mb-4">
+              <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-ink-deep mb-4 mt-0">
                 {release.title}
               </h2>
 
@@ -85,20 +85,22 @@ export function ChangelogPage({
                 const config = CATEGORY_CONFIG[key]
 
                 return (
-                  <section key={key} className={config.categoryClass}>
-                    <Badge variant="secondary" className={config.badgeClass}>
+                  <section key={key} className="mt-4 first:mt-0">
+                    <span className={config.badgeClass}>
                       {config.label}
-                    </Badge>
-                    <ul>
+                    </span>
+                    <ul className="mt-2 pl-4 list-disc space-y-1">
                       {changes.map((change) => (
-                        <li key={change}>{change}</li>
+                        <li key={change} className="text-sm leading-relaxed text-[#637168]">
+                          {change}
+                        </li>
                       ))}
                     </ul>
                   </section>
                 )
               })}
             </div>
-          </Card>
+          </div>
         ))}
       </section>
 

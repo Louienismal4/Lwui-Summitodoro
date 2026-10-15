@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 270" fill="none">
+  <!-- Concept artwork: replace with final Pinatubo trail illustration here. -->
+  <path fill="#e7ece0" d="M0 0h320v270H0z"/>
+  <circle cx="250" cy="48" r="27" fill="#edc47b"/>
+  <path d="m0 126 38-42 36 19 49-53 35 27 35-15 44 58 42-41 41 26v165H0Z" fill="#a8bbb0"/>
+  <path d="m0 113 34 16 49-54 30 15 44 78 46-42 38-25 32-40 47 43v166H0Z" fill="#7d8e72"/>
+  <path d="m0 113 34 16 49-54 9 17-27 55-31 21-34-18Zm203 13 38-25 32-40 15 22-24 50-37 39Z" fill="#c3b892"/>
+  <path d="M0 168c75-8 92 17 157 17s124-27 163-12v97H0Z" fill="#649c95"/>
+  <path d="M13 182c65-14 101 22 173 13s99-18 134-12v29c-66-6-98 19-167 14S36 203 0 215Z" fill="#86bdb1"/>
+  <path d="m0 218 56-10 53 38 75 24H0Zm320-19-39 20-14 34-79 17h132Z" fill="#4f705b"/>
+  <path d="m0 250 51-18 57 24 51 14H0Z" fill="#b6aa7b"/>
+  <path d="M84 184h37m86 22h56m-141 17h29" stroke="#d0e1c7" stroke-width="2" stroke-linecap="round"/>
+  <path d="M43 51q6-5 12 0 6-5 12 0m10 14q4-4 8 0 4-4 8 0" stroke="#6c8577" stroke-width="2" stroke-linecap="round"/>
+</svg>
