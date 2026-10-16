@@ -7,6 +7,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { MenuIcon } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 type Props = {
   activeView: "home" | "about" | "changelog" | "hike";
@@ -23,11 +24,23 @@ export function SiteHeader({
   onNavigateChangelog,
   onStartExpedition,
 }: Props) {
+  const isHome = activeView === "home";
+
   return (
-    <header className="info-header flex items-center justify-between gap-3 pb-4 sm:pb-6 border-b border-[var(--line)]">
+    <header
+      className={cn(
+        "flex items-center justify-between gap-3 mx-auto",
+        isHome
+          ? "max-w-[1200px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] min-h-[76px] sm:min-h-[96px] py-4 sm:py-[22px] border-b-0"
+          : "max-w-[1080px] w-full pb-4 sm:pb-[22px] border-b border-line",
+      )}
+    >
       {/* Brand logo */}
       <a
-        className="info-brand cursor-pointer shrink-0 block overflow-hidden"
+        className={cn(
+          "cursor-pointer shrink-0 block overflow-hidden aspect-[5] text-ink-deep",
+          isHome ? "w-[156px]" : "w-[clamp(120px,25vw,190px)]",
+        )}
         aria-label="Summitodoro home"
         href="/"
         onClick={(e) => {
@@ -39,7 +52,7 @@ export function SiteHeader({
           alt="Summitodoro"
           width={1000}
           height={200}
-          className="info-brand-logo w-full h-auto object-contain block"
+          className="w-full h-auto object-contain block"
           src="/summitodoro-logo.svg"
         />
       </a>
@@ -53,11 +66,12 @@ export function SiteHeader({
           variant="ghost"
           size="sm"
           onClick={onStartExpedition}
-          className={`h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md cursor-pointer transition-colors ${
+          className={cn(
+            "h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md cursor-pointer transition-colors",
             activeView === "hike"
-              ? "text-[var(--pine)] bg-[#183f350c] hover:bg-[#183f350c] font-extrabold"
-              : "text-[#617067] hover:text-[var(--pine)] hover:bg-transparent hover:underline"
-          }`}
+              ? "text-pine bg-[#183f350c] hover:bg-[#183f350c] font-extrabold"
+              : "text-[#617067] hover:text-pine hover:bg-transparent hover:underline",
+          )}
         >
           Expedition
         </Button>
@@ -65,11 +79,12 @@ export function SiteHeader({
           variant="ghost"
           size="sm"
           onClick={onNavigateAbout}
-          className={`h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md transition-colors cursor-pointer ${
+          className={cn(
+            "h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md transition-colors cursor-pointer",
             activeView === "about"
-              ? "text-[var(--pine)] bg-transparent hover:bg-transparent font-extrabold"
-              : "text-[#617067] hover:text-[var(--pine)] hover:bg-transparent hover:underline"
-          }`}
+              ? "text-pine bg-transparent hover:bg-transparent font-extrabold"
+              : "text-[#617067] hover:text-pine hover:bg-transparent hover:underline",
+          )}
         >
           About
         </Button>
@@ -77,11 +92,12 @@ export function SiteHeader({
           variant="ghost"
           size="sm"
           onClick={onNavigateChangelog}
-          className={`h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md transition-colors cursor-pointer ${
+          className={cn(
+            "h-8 px-2.5 sm:px-3 text-xs sm:text-sm font-bold rounded-md transition-colors cursor-pointer",
             activeView === "changelog"
-              ? "text-[var(--pine)] bg-transparent hover:bg-transparent font-extrabold"
-              : "text-[#617067] hover:text-[var(--pine)] hover:bg-transparent hover:underline"
-          }`}
+              ? "text-pine bg-transparent hover:bg-transparent font-extrabold"
+              : "text-[#617067] hover:text-pine hover:bg-transparent hover:underline",
+          )}
         >
           Changelog
         </Button>
@@ -91,7 +107,7 @@ export function SiteHeader({
       <div className="flex md:hidden items-center shrink-0">
         <DropdownMenu>
           <DropdownMenuTrigger
-            className="size-10 rounded-lg text-[var(--ink)] flex items-center justify-center cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--pine)] transition-colors shadow-xs"
+            className="size-10 rounded-lg text-ink flex items-center justify-center cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-pine transition-colors shadow-xs"
             aria-label="Open mobile navigation menu"
           >
             <MenuIcon className="size-7" />
@@ -101,42 +117,45 @@ export function SiteHeader({
             align="end"
             side="bottom"
             sideOffset={8}
-            className="w-52 min-w-[13rem] rounded-xl bg-[var(--paper)] border border-[var(--line)] p-1.5 shadow-xl text-[var(--ink)] z-50 animate-in fade-in-0 zoom-in-95"
+            className="w-52 min-w-[13rem] rounded-xl bg-paper border border-line p-1.5 shadow-xl text-ink z-50 animate-in fade-in-0 zoom-in-95"
           >
             <DropdownMenuItem
               onClick={onStartExpedition}
-              className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors ${
+              className={cn(
+                "flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors",
                 activeView === "hike"
-                  ? "text-[var(--pine)] bg-[#183f3510] font-extrabold"
-                  : "text-[var(--ink)] hover:bg-[var(--cream)] focus:bg-[var(--cream)]"
-              }`}
+                  ? "text-pine bg-[#183f3510] font-extrabold"
+                  : "text-ink hover:bg-cream focus:bg-cream",
+              )}
             >
               <span>Expedition</span>
-              <span className="text-[10px] bg-[var(--coral)]/10 text-[var(--coral)] px-2 py-0.5 rounded-full uppercase tracking-wider font-extrabold">
+              <span className="text-[10px] bg-coral/10 text-coral px-2 py-0.5 rounded-full uppercase tracking-wider font-extrabold">
                 Hike →
               </span>
             </DropdownMenuItem>
 
-            <DropdownMenuSeparator className="bg-[var(--line)] my-1" />
+            <DropdownMenuSeparator className="bg-line my-1" />
 
             <DropdownMenuItem
               onClick={onNavigateAbout}
-              className={`flex items-center py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors ${
+              className={cn(
+                "flex items-center py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors",
                 activeView === "about"
-                  ? "text-[var(--pine)] bg-[#183f3510] font-extrabold"
-                  : "text-[#617067] hover:bg-[var(--cream)] focus:bg-[var(--cream)] hover:text-[var(--ink)]"
-              }`}
+                  ? "text-pine bg-[#183f3510] font-extrabold"
+                  : "text-[#617067] hover:bg-cream focus:bg-cream hover:text-ink",
+              )}
             >
               About
             </DropdownMenuItem>
 
             <DropdownMenuItem
               onClick={onNavigateChangelog}
-              className={`flex items-center py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors ${
+              className={cn(
+                "flex items-center py-2.5 px-3 rounded-lg text-sm font-bold cursor-pointer transition-colors",
                 activeView === "changelog"
-                  ? "text-[var(--pine)] bg-[#183f3510] font-extrabold"
-                  : "text-[#617067] hover:bg-[var(--cream)] focus:bg-[var(--cream)] hover:text-[var(--ink)]"
-              }`}
+                  ? "text-pine bg-[#183f3510] font-extrabold"
+                  : "text-[#617067] hover:bg-cream focus:bg-cream hover:text-ink",
+              )}
             >
               Changelog
             </DropdownMenuItem>

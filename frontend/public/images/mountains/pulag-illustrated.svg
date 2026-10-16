@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 270" fill="none">
+  <!-- Concept artwork: replace with final Pulag trail illustration here. -->
+  <path fill="#f0dfc0" d="M0 0h320v270H0z"/>
+  <circle cx="209" cy="73" r="38" fill="#efb66b"/>
+  <path d="m0 154 53-61 34 22 54-64 35 28 25-10 61 62 31-29 27 21v147H0Z" fill="#adbdb6"/>
+  <path d="m0 183 58-49 29 18 64-35 50 48 71-43 48 28v120H0Z" fill="#819d92"/>
+  <path d="M0 166c39-24 69 8 110-7s79-17 123 0 57-5 87-8v47H0Z" fill="#f9f4e4"/>
+  <path d="M0 188c57-20 87 16 141-2s111-7 179-10v42H0Z" fill="#dbe5dc"/>
+  <path d="M0 218c48-20 70-13 112-40s65-48 96-39 69 70 112 66v65H0Z" fill="#839069"/>
+  <path d="M57 202c60-23 91-72 137-64 21 3 34 11 44 28-33-21-46-14-65-4s-66 40-116 40Z" fill="#c9bc7f"/>
+  <path d="M0 258c88-48 109-19 162-40s93-30 158 0v52H0Z" fill="#4d7159"/>
+  <path d="M242 270c-20-28-75-31-61-49s64-29 42-49c39 21-1 41-16 48-26 13 30 21 54 50Z" fill="#d8c69b"/>
+  <path d="m77 243 2-13m-2 13 8-8m-8 8-6-9m208 5 3-14m-3 14 9-7" stroke="#b6b67e" stroke-width="2" stroke-linecap="round"/>
+</svg>
