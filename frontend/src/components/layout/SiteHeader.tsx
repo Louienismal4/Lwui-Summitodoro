@@ -1,3 +1,4 @@
+import { useAnimate, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -25,13 +26,15 @@ export function SiteHeader({
   onStartExpedition,
 }: Props) {
   const isHome = activeView === "home";
+  const [scrollScope, animate] = useAnimate();
+  const reducedMotion = useReducedMotion();
 
   return (
     <header
       className={cn(
         "flex items-center justify-between gap-3 mx-auto",
         isHome
-          ? "max-w-[1200px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] min-h-[76px] sm:min-h-[96px] py-4 sm:py-[22px] border-b-0"
+          ? "landing-nav max-w-[1200px] w-[calc(100%-40px)] sm:w-[calc(100%-80px)] min-h-[76px] sm:min-h-[96px] py-4 sm:py-[22px] border-b-0"
           : "max-w-[1080px] w-full pb-4 sm:pb-[22px] border-b border-line",
       )}
     >
@@ -39,7 +42,7 @@ export function SiteHeader({
       <a
         className={cn(
           "cursor-pointer shrink-0 block overflow-hidden aspect-[5] text-ink-deep",
-          isHome ? "w-[156px]" : "w-[clamp(120px,25vw,190px)]",
+          isHome ? "w-[156px] lg:w-[240px]" : "w-[clamp(120px,25vw,190px)]",
         )}
         aria-label="Summitodoro home"
         href="/"
@@ -62,6 +65,30 @@ export function SiteHeader({
         aria-label="Desktop navigation"
         className="hidden md:flex items-center gap-1 sm:gap-2 shrink-0"
       >
+        {isHome && (
+          <a
+            href="#how-it-works"
+            className="landing-how-link"
+            onClick={(event) => {
+              if (reducedMotion || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+              const section = document.getElementById("how-it-works");
+              if (!section) return;
+              event.preventDefault();
+              scrollScope.animations.forEach((animation) => animation.stop());
+              animate(window.scrollY, window.scrollY + section.getBoundingClientRect().top, {
+                duration: 1.2,
+                ease: [0.65, 0, 0.35, 1],
+                onUpdate: (top) => window.scrollTo({ top, behavior: "instant" }),
+                onComplete: () => {
+                  window.history.pushState(window.history.state, "", "#how-it-works");
+                  section.focus({ preventScroll: true });
+                },
+              });
+            }}
+          >
+            How it works
+          </a>
+        )}
         <Button
           variant="ghost"
           size="sm"
@@ -102,6 +129,8 @@ export function SiteHeader({
           Changelog
         </Button>
       </nav>
+
+      {isHome && <Button onClick={onStartExpedition} className="landing-nav-cta hidden md:inline-flex">Start climbing <span aria-hidden="true">↗</span></Button>}
 
       {/* Mobile Navigation: Hamburger Menu + Dropdown (visible on mobile: < 768px) */}
       <div className="flex md:hidden items-center shrink-0">
